@@ -31,13 +31,22 @@
    try {
      
     await client.connect();
-        const Appointments = client.db('sunnahHealing').collection('appointmentCategory')
+        const appointmentCategoryCollection = client.db('sunnahHealing').collection('appointmentCategory')
+        const appointmentsCollection = client.db('sunnahHealing').collection('appointments')
 
 
-        app.get('/appointments', async(req, res )=>{
-            const result = await Appointments.find().toArray();
+        app.get('/appointmentCategory', async(req, res )=>{
+            const result = await appointmentCategoryCollection.find().toArray();
             // const result = await cursor.toArray();
             res.send(result)
+
+
+        
+        app.post('/appointments'),async(req, res)=>{
+          const appointment = req.body 
+          const result= await appointmentsCollection('appointments')
+          res.send(result)
+        }
         });
 
 
