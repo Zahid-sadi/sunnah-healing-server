@@ -55,6 +55,14 @@ async function run() {
             res.send(categories);
         });
 
+
+        app.get('/appointments',async(req,res)=>{
+          const email =req.query.email;
+          const query = {email:email};
+          const appointments =await appointmentCollection.find(query).toArray();
+          res.send(appointments)
+        })
+
         app.post("/appointments", async (req, res) => {
             const appointment = req.body;
 
