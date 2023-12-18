@@ -93,4 +93,4 @@ async function run() {
 }
 run().catch(console.dir);
 
-app.listen(port, () => console.log(`sunnah healing running ${port}`));
+app.listen(port, () => console.log(`suNNah healing running on ${port}`));
